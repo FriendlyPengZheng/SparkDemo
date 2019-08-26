@@ -6,7 +6,7 @@ import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.api.java.function.Function;
 import org.apache.spark.api.java.function.VoidFunction;
 
-public class RDDTest1 {
+public class RDDTest {
 
 	public static void main(String[] args) {
 		

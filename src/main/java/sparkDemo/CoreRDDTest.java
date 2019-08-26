@@ -14,10 +14,10 @@ import org.apache.spark.api.java.function.Function2;
 import org.apache.spark.api.java.function.VoidFunction;
 import org.junit.Test;
 
-import sparkDemo.RDDTest2.AvgCount;
+import sparkDemo.CoreRDDTest.AvgCount;
 
 
-public class RDDTest2 implements Serializable{
+public class CoreRDDTest implements Serializable{
 
 	@Test
 	public void test1(){
@@ -202,7 +202,7 @@ public class RDDTest2 implements Serializable{
 		}
 
 		static Function2<AvgCount,Integer,AvgCount> addAndCount = 
-				new Function2<RDDTest2.AvgCount, Integer, RDDTest2.AvgCount>() {
+				new Function2<CoreRDDTest.AvgCount, Integer, CoreRDDTest.AvgCount>() {
 			
 			@Override
 			public AvgCount call(AvgCount v1, Integer v2) throws Exception {
@@ -213,7 +213,7 @@ public class RDDTest2 implements Serializable{
 		};
 		
 		static Function2<AvgCount,AvgCount,AvgCount> combine = 
-				new Function2<RDDTest2.AvgCount, RDDTest2.AvgCount, RDDTest2.AvgCount>() {
+				new Function2<CoreRDDTest.AvgCount, CoreRDDTest.AvgCount, CoreRDDTest.AvgCount>() {
 					
 					@Override
 					public AvgCount call(AvgCount v1, AvgCount v2) throws Exception {

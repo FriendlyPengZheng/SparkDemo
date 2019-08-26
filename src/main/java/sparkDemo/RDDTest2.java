@@ -82,7 +82,7 @@ public class RDDTest2 implements Serializable{
 			
 		}, false, 1);
 		
-		System.out.println(StringUtils.join(sort.collect(),","));
+		//System.out.println(StringUtils.join(sort.collect(),","));
 		
 		sc.close();
 	}

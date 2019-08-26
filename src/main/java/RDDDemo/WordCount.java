@@ -1,4 +1,4 @@
-package sparkDemo;
+package RDDDemo;
 
 import java.util.Arrays;
 import java.util.Iterator;

@@ -1,4 +1,4 @@
-package sparkDemo;
+package RDDDemo;
 
 import java.io.Serializable;
 import java.util.Arrays;
@@ -14,7 +14,7 @@ import org.apache.spark.api.java.function.Function2;
 import org.apache.spark.api.java.function.VoidFunction;
 import org.junit.Test;
 
-import sparkDemo.CoreRDDTest.AvgCount;
+import RDDDemo.CoreRDDTest.AvgCount;
 
 
 public class CoreRDDTest implements Serializable{

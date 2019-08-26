@@ -11,6 +11,7 @@ import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.api.java.function.FlatMapFunction;
 import org.apache.spark.api.java.function.Function;
 import org.apache.spark.api.java.function.Function2;
+import org.apache.spark.api.java.function.VoidFunction;
 import org.junit.Test;
 
 import sparkDemo.RDDTest2.AvgCount;
@@ -106,6 +107,14 @@ public class RDDTest2 implements Serializable{
 		});
 	
 		System.out.println(words.collect());
+		
+		words.foreach(new VoidFunction<String>() {
+			
+			@Override
+			public void call(String t) throws Exception {
+				System.out.println(t);
+			}
+		});
 	}
 	
 	@Test
@@ -160,6 +169,7 @@ public class RDDTest2 implements Serializable{
 		System.out.println(result.avg());
 		sc.close();
 	}
+	
 	class ContainsHello implements Function<String, Boolean>{
 
 		@Override

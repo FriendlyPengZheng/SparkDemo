@@ -138,7 +138,7 @@ public class PairRDDTest {
 		System.out.println("rightOuterRDD="+rightOuterRDD.collect());
 		
 		/*
-		 * cggroup()
+		 * cogroup()
 		 * 将两个RDD中相同的键的数据分组到一起
 		 */
 		JavaPairRDD<Integer, Tuple2<Iterable<Integer>, Iterable<Integer>>> cgRDD = rdd.cogroup(other);

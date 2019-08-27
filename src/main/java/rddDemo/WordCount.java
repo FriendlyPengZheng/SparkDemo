@@ -2,6 +2,7 @@ package rddDemo;
 
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.Map;
 
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
@@ -24,8 +25,8 @@ public class WordCount {
 		
 		JavaSparkContext sc = new JavaSparkContext(conf);
 		
-		JavaRDD<String> line = sc.textFile("C:\\sparkInput/wordcount.txt");
-		
+		//JavaRDD<String> line = sc.textFile("C:\\sparkInput/wordcount.txt");
+		JavaRDD<String> line = sc.textFile("E:\\MyDownloads/spark.txt");
 		JavaRDD<String> words = line.flatMap(new FlatMapFunction<String, String>() {
 
 			public Iterator<String> call(String s) throws Exception {	
@@ -57,6 +58,12 @@ public class WordCount {
 			
 		});
 		
+		/*
+		 * countByValue()
+		 * 也可以实现单词计数功能
+		 */
+		Map<String, Long> reultMap = words.countByValue();
+		System.out.println(reultMap);
 		//result.saveAsTextFile("C:\\sparkOutput/wordCountResult");
 
 		//result.collect();

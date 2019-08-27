@@ -1,4 +1,4 @@
-package RDDDemo;
+package rddDemo;
 
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaRDD;

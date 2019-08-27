@@ -1,4 +1,4 @@
-package RDDDemo;
+package rddDemo;
 
 import java.util.Arrays;
 import java.util.Iterator;

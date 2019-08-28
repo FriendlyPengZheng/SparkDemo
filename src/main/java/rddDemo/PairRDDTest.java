@@ -32,7 +32,6 @@ public class PairRDDTest {
 		list.add(new Tuple2<Integer,Integer>(3,6));
 		
 		JavaPairRDD<Integer,Integer> input = sc.parallelizePairs(list);
-		
 		/*
 		 * reduceByKey()
 		 */

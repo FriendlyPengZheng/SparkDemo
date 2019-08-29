@@ -44,7 +44,6 @@ public class PairRDDTest2 {
 		JavaPairRDD<Integer,Integer> mySort = input.sortByKey(new MyComparator<Integer>());
 		
 		System.out.println("sort="+mySort.collect());
-		
 		/*
 		 * countByKey()
 		 * 分别对每一个key进行计数

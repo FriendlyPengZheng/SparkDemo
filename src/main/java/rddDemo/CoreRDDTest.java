@@ -166,7 +166,13 @@ public class CoreRDDTest implements Serializable{
 		
 		AvgCount result = input.aggregate(new AvgCount(0, 0),AvgCount.addAndCount , AvgCount.combine);
 		
-		System.out.println(result.avg());
+		System.out.println("avg="+result.avg());
+		/*
+		 * count()
+		 * 返回当前RDD元素个数
+		 */
+		System.out.println("count="+input.count());
+		
 		sc.close();
 	}
 	

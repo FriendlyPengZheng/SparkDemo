@@ -41,7 +41,7 @@ public class Test1 {
 }
 /*
  * 自定义累加器
- * 实现抽象类 	AccumulatorV2
+ * 实现抽象类 	 AccumulatorV2
  */
 class MyAccumulator extends AccumulatorV2<Integer, Integer>{
 

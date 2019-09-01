@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 import org.apache.spark.SparkConf;
+import org.apache.spark.TaskContext;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
@@ -21,11 +22,13 @@ public class WordCount {
 		
 		SparkConf conf = new SparkConf()
 				.setAppName("friendly`s word count !")
-				.setMaster("local");
+				.setMaster("local[*]");
 		
 		JavaSparkContext sc = new JavaSparkContext(conf);
 		
 		//JavaRDD<String> line = sc.textFile("C:\\sparkInput/wordcount.txt");
+		// "E:\\MyDownloads/spark.txt"
+		//JavaRDD<String> line = sc.textFile(args[0]);
 		JavaRDD<String> line = sc.textFile("E:\\MyDownloads/spark.txt");
 		JavaRDD<String> words = line.flatMap(new FlatMapFunction<String, String>() {
 
@@ -53,7 +56,7 @@ public class WordCount {
 		result.foreach(new VoidFunction<Tuple2<String,Integer>>() {
 
 			public void call(Tuple2<String, Integer> t) throws Exception {
-				System.out.println(t._1() + " " +t._2());
+				System.out.println("partition["+TaskContext.getPartitionId()+"]"+t._1() + " " +t._2());
 			}
 			
 		});
@@ -61,12 +64,13 @@ public class WordCount {
 		/*
 		 * countByValue()
 		 * 也可以实现单词计数功能
+		 * Map<String, Long> reultMap = words.countByValue();
 		 */
-		Map<String, Long> reultMap = words.countByValue();
-		System.out.println(reultMap);
-		//result.saveAsTextFile("C:\\sparkOutput/wordCountResult");
-
-		//result.collect();
+		//System.out.println(reultMap);
+		//result.saveAsTextFile(args[1]);
+		
+		//	C:\\sparkOutput/wordCountResult
+		result.collect();
 		
 		sc.close();
 	}

@@ -30,7 +30,6 @@ public class SparkFileText {
 		
 		/*
 		 * wholeTextFile()
-		 * 只能从HDFS上读取文件
 		 */
 		JavaPairRDD<String, String> input = sc.wholeTextFiles("E:\\MyDownloads/spark.txt");
 		
@@ -41,7 +40,7 @@ public class SparkFileText {
 				return Arrays.asList(v1.split(" "));
 			}
 			
-		});
+		});    
 		
 		JavaRDD<List<String>> r = result.values();
 		System.out.println(result.keys().collect());
